@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Manrope:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#006a6c",
+                    "on-tertiary-container": "#5b005e",
+                    "surface-container-highest": "#232629",
+                    "on-primary-fixed": "#004344",
+                    "secondary": "#ff734c",
+                    "on-secondary": "#430b00",
+                    "primary-container": "#0cd0d3",
+                    "secondary-container": "#b12d00",
+                    "primary-dim": "#3de4e7",
+                    "tertiary": "#ff9bf8",
+                    "on-secondary-fixed-variant": "#992600",
+                    "surface-variant": "#232629",
+                    "surface-bright": "#292c2f",
+                    "tertiary-dim": "#e77be2",
+                    "surface-container-low": "#111416",
+                    "tertiary-fixed": "#f688f1",
+                    "surface-container-lowest": "#000000",
+                    "outline": "#747578",
+                    "on-tertiary": "#6b006f",
+                    "on-primary-fixed-variant": "#006264",
+                    "on-tertiary-fixed": "#310033",
+                    "background": "#0c0e10",
+                    "tertiary-container": "#f688f1",
+                    "surface-container-high": "#1d2022",
+                    "secondary-fixed": "#ffc4b4",
+                    "inverse-on-surface": "#535557",
+                    "on-primary-container": "#004041",
+                    "on-primary": "#005859",
+                    "on-surface": "#eeeef0",
+                    "primary": "#52f2f5",
+                    "outline-variant": "#46484a",
+                    "on-tertiary-fixed-variant": "#69006d",
+                    "error-container": "#9f0519",
+                    "tertiary-fixed-dim": "#e77be2",
+                    "on-error": "#490006",
+                    "surface-tint": "#52f2f5",
+                    "on-background": "#eeeef0",
+                    "surface-container": "#171a1c",
+                    "on-surface-variant": "#aaabad",
+                    "error-dim": "#d7383b",
+                    "secondary-dim": "#ff734c",
+                    "primary-fixed-dim": "#3de4e7",
+                    "on-secondary-fixed": "#671600",
+                    "secondary-fixed-dim": "#ffb19b",
+                    "primary-fixed": "#52f2f5",
+                    "on-error-container": "#ffa8a3",
+                    "inverse-surface": "#f9f9fc",
+                    "error": "#ff716c",
+                    "surface-dim": "#0c0e10",
+                    "surface": "#0c0e10",
+                    "on-secondary-container": "#fff6f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-path {
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+        .glow-cyan { text-shadow: 0 0 10px rgba(82,242,245,0.4); }
+        .polaroid-tilt-right { transform: rotate(2deg); }
+        .polaroid-tilt-left { transform: rotate(-1.5deg); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#0c0e10]/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="Traveler profile silhouette" class="w-full h-full object-cover" data-alt="Close-up portrait of a traveler with a silhouette effect against a warm sunset light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxVY_I1Bri2ZOTx288OWSScov8TjQxxQq2MymJVcmlVlMPWgEpiDeu3EI35jJhYb3ArB3VhgBTrq6xj_-u7MHh1vcN8JaolE1eNeGoTZfYxX4peF8-6I5EjUvphT-aW-HmcvyYXSHaGi9P4kaR69iFAN5LnMc957MhwH7AKti3ZDm5IIpYZJ9ph3kEDwBM1n4hskjTxbHut9q305VTjP_dapzMfVL2qUffvnEkDgVoQxE7h_iOAYHKb798kK0kzs-UTgPMPXxz0KNQ"/>
+</div>
+<h1 class="font-headline font-bold text-xl tracking-tight text-[#52f2f5] drop-shadow-[0_0_8px_rgba(82,242,245,0.5)]">Digital Scripter</h1>
+</div>
+<div class="flex gap-6 items-center">
+<span class="material-symbols-outlined text-white/60 hover:text-[#ff9bf8] transition-all duration-300 cursor-pointer">settings</span>
+</div>
+</header>
+<main class="pt-28 pb-32 px-6 max-w-2xl mx-auto relative">
+<!-- Floating Abstract Background Elements -->
+<div class="fixed top-1/4 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -left-20 w-80 h-80 bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Page Header -->
+<div class="mb-12 text-right">
+<h2 class="font-headline text-4xl mb-2 text-on-background">טיול דרום מזרח אסיה</h2>
+<p class="font-label text-sm text-white/40 tracking-[0.2em] uppercase">October 2024 • 24 Days</p>
+</div>
+<!-- The Winding Journey Path -->
+<div class="relative organic-path">
+<!-- SVG Path Graphic -->
+<svg class="absolute top-0 right-1/2 translate-x-1/2 w-full h-[150%] pointer-events-none z-0" preserveaspectratio="none" viewbox="0 0 100 800">
+<path d="M50,0 Q80,100 20,200 T50,400 T80,600 T50,800" fill="none" opacity="0.2" stroke="url(#paint0_linear)" stroke-dasharray="8 12" stroke-width="2"></path>
+<defs>
+<lineargradient id="paint0_linear" x1="0" x2="0" y1="0" y2="1">
+<stop stop-color="#52f2f5"></stop>
+<stop offset="0.5" stop-color="#ff734c"></stop>
+<stop offset="1" stop-color="#ff9bf8"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Stop 1: Bangkok -->
+<div class="relative z-10 flex justify-start mb-24">
+<div class="w-[85%] bg-surface-container-high p-4 rounded-[2rem_1rem_3rem_1.5rem] shadow-2xl polaroid-tilt-right hover:rotate-0 transition-transform duration-500 group">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
+<img alt="Bangkok Streets" class="w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="Vibrant night street scene in Bangkok with neon signs, tuk-tuks, and long exposure light trails" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC34t1FFfJVvLwx1g06yMnJu9R-x5BoeK9aV1TI6yyFEIgQq7k-YayS0Dv7RloxgJsSFQU5txnywdix_toH6kOs-jXi171x3eTkyMdx5EFEZ3ZulNVWRou2oVLgH6dPiLqMj4p0KM7R3MN3Zco9hzU-eC8GmSWFmzSzQT11fJz7NAoeBRyoZn40VqSZqGHE3SZQQuLlCfZ7XodJach72WiMrYOKQ_er9cSawJS59fuXdIPzTDe5o8k5ZsEhiRHEZ5SJMW8Ac9JyBEIB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute bottom-3 right-4">
+<span class="font-label text-xs bg-tertiary-container/20 text-tertiary px-3 py-1 rounded-sm backdrop-blur-md">Day 01 - 04</span>
+</div>
+</div>
+<div class="text-right">
+<h3 class="font-headline text-2xl text-primary glow-cyan mb-1">בנגקוק, תאילנד</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">שווקים צפים, מקדשים מוזהבים ואוכל רחוב אינסופי. התחלה מחשמלת למסע.</p>
+<div class="flex flex-wrap gap-2 justify-end">
+<span class="px-3 py-1 bg-surface-container-highest text-secondary text-[10px] font-bold rounded-full border border-secondary/20">חובה: מקדש השחר</span>
+<span class="px-3 py-1 bg-surface-container-highest text-primary text-[10px] font-bold rounded-full border border-primary/20">אוכל רחוב</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Transport: Sleeper Bus -->
+<div class="relative z-10 flex justify-center my-16">
+<div class="flex items-center gap-3 bg-surface-container-low px-6 py-3 rounded-full border border-white/5 shadow-lg">
+<span class="material-symbols-outlined text-secondary">directions_bus</span>
+<span class="font-label text-xs font-medium text-on-surface/70">אוטובוס לילה לסיאם ריפ (Sleeper Bus)</span>
+<span class="text-[10px] text-white/30">12 שעות</span>
+</div>
+</div>
+<!-- Stop 2: Siem Reap -->
+<div class="relative z-10 flex justify-end mb-24">
+<div class="w-[85%] bg-surface-container-high p-4 rounded-[1.5rem_3rem_1rem_2.5rem] shadow-2xl polaroid-tilt-left hover:rotate-0 transition-transform duration-500 group">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-4">
+<img alt="Angkor Wat" class="w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="Majestic stone towers of Angkor Wat reflected in a lily pond at sunrise with soft orange and purple sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8qHXwdTecuV-3Ofrh6WdUxc8HeNjthM79QsGWhmnFrdYF9v3TeQG-VW90V5Sz4VDi6OVu5tc_ucRyKim9Sqje-qNOf7_xyxxaeaeviFxgzXZDUdpA3l9FD4-DpH_AbuovUfRfOeIrR-CIMc6FYSxjWolr6A-o6i_S6XOefLO8lfv_Tgr4Ut2wBbexkKj0hHx-iyf89eLjhKw_vFKrZcT6SP_63ZaJaTZ2XYjuUq_1-Z7mhM_IM0dwKeeYtIirx7vR_Xer9MNTd5zW"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute bottom-3 right-4">
+<span class="font-label text-xs bg-tertiary-container/20 text-tertiary px-3 py-1 rounded-sm backdrop-blur-md">Day 05 - 08</span>
+</div>
+</div>
+<div class="text-right">
+<h3 class="font-headline text-2xl text-secondary mb-1">סיאם ריפ, קמבודיה</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">מקדשי אנגקור ואט המרהיבים בזריחה. שקט רוחני וארכיטקטורה עתיקה.</p>
+<div class="flex flex-wrap gap-2 justify-end">
+<span class="px-3 py-1 bg-surface-container-highest text-tertiary text-[10px] font-bold rounded-full border border-tertiary/20">זריחה באנגקור</span>
+<span class="px-3 py-1 bg-surface-container-highest text-secondary text-[10px] font-bold rounded-full border border-secondary/20">היסטוריה</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Stop 3: Koh Rong (Teaser) -->
+<div class="relative z-10 flex justify-start mb-12 opacity-60">
+<div class="w-[70%] border-2 border-dashed border-white/10 p-8 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-white/20 mb-4">sailing</span>
+<h4 class="font-headline text-xl text-white/40">קו רונג, קמבודיה</h4>
+<p class="font-label text-xs text-white/20">היעד הבא...</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-28 left-6 w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full shadow-[0_0_20px_rgba(82,242,245,0.4)] flex items-center justify-center text-on-primary-container group active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold group-hover:rotate-90 transition-transform duration-300">add</span>
+</button>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] z-50 bg-[#0c0e10]/90 backdrop-blur-lg rounded-[2rem_1rem_3rem_1.5rem] border border-white/5 shadow-[0_10px_40px_rgba(82,242,245,0.15)] flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-[#52f2f5]/20 to-[#ff9bf8]/10 text-[#52f2f5] rounded-full p-3 shadow-[0_0_15px_rgba(82,242,245,0.3)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide mt-1">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide mt-1">Budget</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide mt-1">Checklist</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#0cd0d3",
+                        "surface-dim": "#0c0e10",
+                        "surface-tint": "#52f2f5",
+                        "on-error-container": "#ffa8a3",
+                        "error": "#ff716c",
+                        "tertiary": "#ff9bf8",
+                        "on-surface": "#eeeef0",
+                        "outline-variant": "#46484a",
+                        "on-secondary-fixed-variant": "#992600",
+                        "secondary-container": "#b12d00",
+                        "inverse-primary": "#006a6c",
+                        "inverse-on-surface": "#535557",
+                        "secondary-dim": "#ff734c",
+                        "outline": "#747578",
+                        "tertiary-dim": "#e77be2",
+                        "primary": "#52f2f5",
+                        "surface-variant": "#232629",
+                        "surface-container-lowest": "#000000",
+                        "on-secondary": "#430b00",
+                        "on-tertiary-container": "#5b005e",
+                        "on-primary-fixed-variant": "#006264",
+                        "surface-container": "#171a1c",
+                        "surface-bright": "#292c2f",
+                        "on-primary": "#005859",
+                        "on-surface-variant": "#aaabad",
+                        "secondary-fixed-dim": "#ffb19b",
+                        "tertiary-fixed": "#f688f1",
+                        "on-background": "#eeeef0",
+                        "primary-dim": "#3de4e7",
+                        "error-dim": "#d7383b",
+                        "error-container": "#9f0519",
+                        "secondary-fixed": "#ffc4b4",
+                        "inverse-surface": "#f9f9fc",
+                        "on-error": "#490006",
+                        "on-primary-fixed": "#004344",
+                        "tertiary-fixed-dim": "#e77be2",
+                        "secondary": "#ff734c",
+                        "on-tertiary-fixed-variant": "#69006d",
+                        "primary-fixed": "#52f2f5",
+                        "on-primary-container": "#004041",
+                        "surface-container-highest": "#232629",
+                        "surface-container-high": "#1d2022",
+                        "on-secondary-container": "#fff6f4",
+                        "on-secondary-fixed": "#671600",
+                        "on-tertiary-fixed": "#310033",
+                        "surface": "#0c0e10",
+                        "background": "#0c0e10",
+                        "primary-fixed-dim": "#3de4e7",
+                        "tertiary-container": "#f688f1",
+                        "surface-container-low": "#111416",
+                        "on-tertiary": "#6b006f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0c0e10;
+            background-image: radial-gradient(circle at 2px 2px, rgba(82, 242, 245, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .path-svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: drop-shadow(0 0 8px rgba(82, 242, 245, 0.3));
+        }
+        .scribble-font {
+            font-family: 'Noto Serif', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50 flex justify-between items-center px-8 py-4 bg-slate-950/40 backdrop-blur-xl rounded-[2rem_1rem_3rem_1.5rem] border-b border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl italic text-cyan-300 drop-shadow-[0_0_8px_rgba(82,242,245,0.6)]">טיוול דרום-מזרח אסיה</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-cyan-400 font-bold font-serif text-lg tracking-wide hover:scale-105 transition-all" href="#">ציר זמן</a>
+<a class="text-slate-400 font-serif text-lg tracking-wide hover:scale-105 transition-all" href="#">מפה</a>
+<a class="text-slate-400 font-serif text-lg tracking-wide hover:scale-105 transition-all" href="#">תקציב</a>
+<a class="text-slate-400 font-serif text-lg tracking-wide hover:scale-105 transition-all" href="#">צ'קליסט</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer hover:scale-110 transition-transform">notifications</span>
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer hover:scale-110 transition-transform">account_circle</span>
+</div>
+</nav>
+<!-- SideNavBar (Insider Notebook Style) - Positioned Left for RTL Scrapbook Look -->
+<aside class="fixed left-6 top-28 bottom-8 flex flex-col items-center py-10 gap-8 z-40 bg-slate-950/60 backdrop-blur-2xl w-24 rounded-[1.5rem_3rem_4rem_2rem] shadow-2xl shadow-cyan-900/20 border-l border-white/5">
+<div class="flex flex-col items-center gap-1 mb-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary overflow-hidden shadow-[0_0_15px_rgba(82,242,245,0.4)]">
+<img alt="Traveler Seal" data-alt="portrait of a seasoned world traveler with weathered skin and kind eyes looking into the distance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV_4Tg-RCOfKvijHICTGOiKSDXBtpvOglaSPj0xl1IFWSn2zFfVPckmvBg-F0vVdmNmfK6flnKtcgpVZIDnEiStdkTvwrx73EnG9TEfQGRAuJ08d20EyhiZys7KY7hNtWClDSLsZWYz4Tg_Vib-6v3cl5eWvrVAjfaBl6Qs1CA68j2HWpuiSUDFkXUt7mWn9pz2hWeMypX3QIZ-q1tM0iD_jOFmy-QTzH8LQrBD7VB1inPc4HbR5Lr7_gzDT6qR5-TsIGS8Yq7ovtI"/>
+</div>
+<span class="font-serif text-sm text-orange-400 mt-2">הנווד</span>
+</div>
+<div class="flex flex-col gap-10 items-center">
+<div class="group flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
+<div class="bg-cyan-500/20 text-cyan-300 rounded-full p-4 shadow-[0_0_20px_rgba(82,242,245,0.4)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timeline</span>
+</div>
+<span class="text-[10px] mt-1 font-label text-cyan-400 font-bold">ציר זמן</span>
+</div>
+<div class="group flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
+<div class="text-slate-500 p-4 hover:text-orange-400">
+<span class="material-symbols-outlined">map</span>
+</div>
+<span class="text-[10px] mt-1 font-label text-slate-500">מפה</span>
+</div>
+<div class="group flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
+<div class="text-slate-500 p-4 hover:text-orange-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-[10px] mt-1 font-label text-slate-500">תקציב</span>
+</div>
+<div class="group flex flex-col items-center cursor-pointer transition-transform hover:scale-110">
+<div class="text-slate-500 p-4 hover:text-orange-400">
+<span class="material-symbols-outlined">fact_check</span>
+</div>
+<span class="text-[10px] mt-1 font-label text-slate-500">צ'קליסט</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="relative pt-32 pb-20 px-4 md:px-32 lg:px-48 min-h-screen">
+<!-- The Winding Path SVG -->
+<svg class="path-svg" fill="none" preserveaspectratio="none" viewbox="0 0 1000 1200">
+<path d="M800,50 C600,150 900,300 700,450 C500,600 200,500 150,750 C100,1000 400,1100 600,1150" opacity="0.4" stroke="url(#paint0_linear)" stroke-dasharray="12 12" stroke-width="4"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="800" x2="600" y1="50" y2="1150">
+<stop stop-color="#52f2f5"></stop>
+<stop offset="1" stop-color="#ff734c"></stop>
+</lineargradient>
+</defs>
+</svg>
+<header class="mb-20 text-right pr-12 relative">
+<h1 class="font-headline text-6xl font-bold text-on-surface mb-2 tracking-tight">מסע בסימני דיו</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-xl scribbles text-cyan-400/80">זכרונות מהמזרח הרחוק, נובמבר 2024</p>
+<div class="absolute -top-10 -right-20 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl"></div>
+</header>
+<!-- Timeline Section 1: Bangkok -->
+<section class="relative mb-40 flex flex-col md:flex-row-reverse items-center md:items-start gap-12">
+<!-- Connector Node -->
+<div class="absolute right-[15%] md:right-[20%] -top-10">
+<div class="w-6 h-6 bg-primary rounded-full shadow-[0_0_15px_#52f2f5]"></div>
+</div>
+<!-- Card 1: Bangkok -->
+<div class="relative w-full max-w-xl group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-tertiary rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative bg-surface-container-high rounded-[2rem_1rem_3rem_1.5rem] p-8 shadow-2xl transition-transform duration-500 hover:rotate-1">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-primary text-on-primary-container px-4 py-1 rounded-full font-label text-xs font-bold shadow-[0_0_10px_rgba(82,242,245,0.5)]">יום 5</span>
+<h2 class="font-headline text-4xl text-on-surface">בנגקוק</h2>
+</div>
+<div class="relative mb-6 h-64 overflow-hidden rounded-lg transform -rotate-2">
+<img class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700" data-alt="vibrant street scene in Bangkok at night with neon signs reflecting on wet pavement and colorful tuk-tuks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB5n5OzyUyMa-tHnZXFUpqm24uowopUGJ2lm3gjjO5yPbyei5dWcwXWK37tLTC2QTrzvEEs-d67UCSds8KZZEFBcIKLawJVjwmm0Ndm8AbzKke9hJ6SLSVST646EJDReuWezqRTs2ElnVV9lxpvO5BS2R_VplJLV52IxofIg8aAHJRs1lSEglUQvuG0WNUePy7Y5YIV656AQX97hQjq7VnO3lKbSKz0CZLMYdAy1fjqt2C0zGhiSfecNweYVkFI5OxQM2nzEYsz4_0"/>
+<div class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-label text-cyan-300">13.7563° N, 100.5018° E</div>
+</div>
+<p class="font-body text-on-surface-variant leading-relaxed mb-6">
+                        העיר שלא נחה לרגע. ריחות של למון גראס וצ'ילי באוויר, אורות ניאון שמתערבבים עם מקדשים עתיקים. הלילה בשוק רחוב קאו-סאן היה חוויה של חושים.
+                    </p>
+<div class="flex gap-3">
+<span class="bg-tertiary-container/20 text-tertiary px-3 py-1 rounded-sm text-xs font-label">#StreetFood</span>
+<span class="bg-tertiary-container/20 text-tertiary px-3 py-1 rounded-sm text-xs font-label">#NeonVibes</span>
+</div>
+</div>
+</div>
+<!-- Side Note / Doodle -->
+<div class="w-64 transform rotate-6 md:mt-20">
+<div class="bg-surface-container-low p-6 border-b-2 border-primary/30 rounded-lg shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-full h-1 bg-primary/20"></div>
+<h4 class="font-headline text-secondary text-lg mb-2 scribbles underline decoration-wavy decoration-orange-400/40">המלצת מקומי:</h4>
+<p class="font-body text-sm text-on-surface-variant italic leading-snug">
+                        אל תפספסו את ה-Pad Thai בדוכן הנסתר ליד מקדש Wat Saket. הכי טוב בעיר.
+                    </p>
+<span class="material-symbols-outlined text-4xl absolute -bottom-2 -right-2 text-primary/10 rotate-12">restaurant</span>
+</div>
+</div>
+</section>
+<!-- Transit: Sleeper Bus Sticker -->
+<div class="relative w-full flex justify-center my-16">
+<div class="relative group cursor-pointer">
+<div class="bg-surface-bright p-4 rounded-full border-2 border-dashed border-cyan-400/50 shadow-xl transition-all hover:scale-110 hover:rotate-12">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl text-orange-400 mb-1" style="font-variation-settings: 'FILL' 1;">directions_bus</span>
+<span class="font-label text-[10px] text-cyan-300 font-bold uppercase tracking-widest">Sleeper Bus</span>
+</div>
+</div>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 px-3 py-1 rounded text-[10px] text-on-surface-variant border border-white/5 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                    12 שעות של נסיעה רועשת ומרגשת
+                </div>
+</div>
+</div>
+<!-- Timeline Section 2: Siem Reap -->
+<section class="relative mb-40 flex flex-col md:flex-row items-center md:items-start gap-12">
+<!-- Connector Node -->
+<div class="absolute left-[15%] md:left-[20%] -top-10">
+<div class="w-6 h-6 bg-secondary rounded-full shadow-[0_0_15px_#ff734c]"></div>
+</div>
+<!-- Card 2: Siem Reap -->
+<div class="relative w-full max-w-xl group">
+<div class="absolute -inset-2 bg-secondary/10 rounded-3xl blur-2xl"></div>
+<div class="relative bg-teal-950/30 backdrop-blur-xl border border-white/5 rounded-[1.5rem_3rem_1rem_4rem] p-10 shadow-2xl transition-all duration-500 hover:-translate-y-2">
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline text-5xl text-on-surface tracking-tight">סיאם ריפ</h2>
+<span class="text-orange-400 font-label text-sm font-bold tracking-[0.2em]">DAY 12</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="h-48 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="ancient stone temple of Angkor Wat at dawn with silhouettes of palm trees and soft orange sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqU9tU7x7UzFZHOgEtbuubUJ2hMe6kQHsWMJmSdjbveAXrOCAx3gVC_HVZPIuJ25ZDSuxCZEEGYzfDjUP9fWMH4bgzcrySOQlAFE2_SsQGuvJlQKcq9g7LWRgJhnIPtj72csLTJIoOAUbtkNM4dQz3iqlDi-Ckjl3bRQcxmhRf6Vy857nVUDtTT8_-VAT_zMgJ6wfLt_PtvqeDVQWeTdII3Yv6l_DETATBK7_0-miaV0AKPU_ewgQmkhtbuZAk1Vi9pEm8fUMEj3bL"/>
+</div>
+<div class="h-48 rounded-xl overflow-hidden mt-6 shadow-2xl hover:mt-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="detailed stone carving of an apsara dancer on a temple wall in Cambodia with soft moss growing in crevices" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABkhgmv8Djkhs6xYZgUP_Nr5EAy5IvyPwGXgpFcr6Xwgh2OBfqqmRGqCHJXOnQoMnugejaGr7Yw90s1Nc7rHdW0RkzcvwEmQnREQXl5phPLTBtc0n27LXh534UzJhkJrX-eQg6zKpuZU_tBpUZhX1-f-1TM8kN4v1p9yTU9f-SXq-kuve2qggWJa7txy4vL2hWFf9qnOSfdbLhbYDpMUljt-jKz7AQ4LTN7HwUrE09U_DMkyvGt46pFRDR4GZ79uJN5dJlGEq0CVbw"/>
+</div>
+</div>
+<p class="font-body text-on-surface text-lg leading-relaxed mb-8 opacity-90">
+                        השקט של אנגקור וואט בזריחה הוא משהו שאי אפשר להסביר במילים. האבנים העתיקות מספרות סיפורים של אימפריות שנעלמו, והטבע שמשתלט חזרה על הכל ביופי פראי.
+                    </p>
+<div class="border-t border-white/10 pt-6 flex justify-between items-center">
+<div class="flex -space-x-3 space-x-reverse">
+<div class="w-10 h-10 rounded-full border-2 border-surface-container bg-slate-800 flex items-center justify-center text-xs">+12</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface-container bg-slate-700 overflow-hidden">
+<img alt="friend" data-alt="headshot of a male traveler with sunglasses and a backpack" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqJIfqWBwKUgiy9NkFmEK4bp3Eebs_ddH4wyROmdfNNyANMY_K8mTxDdTvMfKHaMT4lr8zSCbnYMbTSULJVEcXCvGnJH7YeMCwgUF-AR42aVZ16jmCMcih8_7Zjv4d5UthbIMhmjoSTTwXdrtLplgc7sw3CVSbciOHkirZlqQlAnqKm7iqah81fDBIcAZUy1UqMz6eWTZe5auVDNDRR8FWjUmSQwVqwIcvVUb6qkgybuyVhw_9tOP834Wp7STKTCi6evSDEtHD52hN"/>
+</div>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-bold text-sm hover:shadow-[0_0_20px_#ff734c] transition-all">קרא עוד</button>
+</div>
+</div>
+</div>
+<!-- Side Notebook (Insider Style) -->
+<div class="w-72 md:mt-10 self-center md:self-start">
+<div class="bg-slate-900/50 backdrop-blur-lg p-8 rounded-[3rem_1rem_2rem_1rem] border-r-4 border-secondary/60 shadow-inner">
+<h3 class="font-headline text-2xl text-cyan-300 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">menu_book</span>
+                        מחברת פנימית
+                    </h3>
+<div class="space-y-6">
+<div>
+<h4 class="font-label text-xs uppercase tracking-widest text-orange-400 mb-2 font-bold">פעילויות</h4>
+<ul class="font-body text-sm text-on-surface-variant space-y-2 scribbles">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>סיור זריחה במקדש</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>שייט באגם טונלה סאפ</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>סדנת בישול קמבודי</li>
+</ul>
+</div>
+<div class="pt-4 border-t border-white/5">
+<h4 class="font-label text-xs uppercase tracking-widest text-orange-400 mb-2 font-bold">מסעדות</h4>
+<ul class="font-body text-sm text-on-surface-variant space-y-2 scribbles">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>The Bug Cafe (למי שמעז)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>Haven - אוכל מדהים</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Action Button -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-primary rounded-full shadow-[0_10px_40px_rgba(82,242,245,0.4)] flex items-center justify-center text-on-primary hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</main>
+<!-- Footer Decoration -->
+<footer class="py-10 text-center opacity-30">
+<p class="font-serif italic text-sm text-on-surface-variant">נוצר באהבה עבור חולמים על המזרח הרחוק</p>
+</footer>
+</body></html>

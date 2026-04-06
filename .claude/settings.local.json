@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npx skills:*)",
+      "mcp__mcp-registry__search_mcp_registry",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --no-import-alias --eslint --turbopack)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --no-import-alias --eslint --turbopack --force)",
+      "Read(//c/Users/itayb/Documents/**)",
+      "Bash(npx create-next-app@latest tp-temp --typescript --tailwind --app --no-src-dir --no-import-alias --eslint --turbopack)",
+      "Bash(cp -r tp-temp/. travel-planner/)",
+      "Bash(rm -rf tp-temp)",
+      "Bash(cp -r C:/Users/itayb/Documents/tp-temp/app C:/Users/itayb/Documents/travel-planner/app)",
+      "Bash(cp -r C:/Users/itayb/Documents/tp-temp/public C:/Users/itayb/Documents/travel-planner/public)",
+      "Bash(cp C:/Users/itayb/Documents/tp-temp/eslint.config.mjs C:/Users/itayb/Documents/travel-planner/eslint.config.mjs)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(node -e ':*)",
+      "Bash(npx jest:*)"
+    ]
+  }
+}

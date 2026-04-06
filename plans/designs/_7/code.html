@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Manrope:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-primary": "#006a6c",
+                "on-tertiary-container": "#5b005e",
+                "surface-container-highest": "#232629",
+                "on-primary-fixed": "#004344",
+                "secondary": "#ff734c",
+                "on-secondary": "#430b00",
+                "primary-container": "#0cd0d3",
+                "secondary-container": "#b12d00",
+                "primary-dim": "#3de4e7",
+                "tertiary": "#ff9bf8",
+                "on-secondary-fixed-variant": "#992600",
+                "surface-variant": "#232629",
+                "surface-bright": "#292c2f",
+                "tertiary-dim": "#e77be2",
+                "surface-container-low": "#111416",
+                "tertiary-fixed": "#f688f1",
+                "surface-container-lowest": "#000000",
+                "outline": "#747578",
+                "on-tertiary": "#6b006f",
+                "on-primary-fixed-variant": "#006264",
+                "on-tertiary-fixed": "#310033",
+                "background": "#0c0e10",
+                "tertiary-container": "#f688f1",
+                "surface-container-high": "#1d2022",
+                "secondary-fixed": "#ffc4b4",
+                "inverse-on-surface": "#535557",
+                "on-primary-container": "#004041",
+                "on-primary": "#005859",
+                "on-surface": "#eeeef0",
+                "primary": "#52f2f5",
+                "outline-variant": "#46484a",
+                "on-tertiary-fixed-variant": "#69006d",
+                "error-container": "#9f0519",
+                "tertiary-fixed-dim": "#e77be2",
+                "on-error": "#490006",
+                "surface-tint": "#52f2f5",
+                "on-background": "#eeeef0",
+                "surface-container": "#171a1c",
+                "on-surface-variant": "#aaabad",
+                "error-dim": "#d7383b",
+                "secondary-dim": "#ff734c",
+                "primary-fixed-dim": "#3de4e7",
+                "on-secondary-fixed": "#671600",
+                "secondary-fixed-dim": "#ffb19b",
+                "primary-fixed": "#52f2f5",
+                "on-error-container": "#ffa8a3",
+                "inverse-surface": "#f9f9fc",
+                "error": "#ff716c",
+                "surface-dim": "#0c0e10",
+                "surface": "#0c0e10",
+                "on-secondary-container": "#fff6f4"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Noto Serif"],
+                "body": ["Plus Jakarta Sans"],
+                "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scripter-glass {
+            backdrop-filter: blur(12px);
+            background: rgba(12, 14, 16, 0.7);
+        }
+        .donut-gradient {
+            background: conic-gradient(from 0deg, #52f2f5 0% 65%, #ff734c 65% 85%, #ff9bf8 85% 100%);
+        }
+        .organic-edge-1 { border-radius: 2rem 1rem 3rem 1.5rem; }
+        .organic-edge-2 { border-radius: 1.5rem 3rem 1rem 2rem; }
+        .organic-edge-3 { border-radius: 2.5rem 1.5rem 2rem 3rem; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3de4e7; border-radius: 9999px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#0c0e10]/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20 shadow-[0_0_10px_rgba(82,242,245,0.2)]">
+<img alt="Traveler profile silhouette" data-alt="minimalist silhouette of a traveler wearing a sun hat against a soft electric cyan gradient circle background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaeQH_AOt6UEazgem8APsiFwmGMmu0OpR4L0gg0bgLsNHx7gNW00uFuPBTq2HXj8j2rF-D74JS8zXj8joX4q_BLZDa6cTU-sEhjwIq-QOoEfN5HpaeqFDMMh4kvwYPev-HTZQDHTcYJ_1heayaZw4MohYrmqmnfPVctY-itBeZkvEUe9_QZNf1dVcaHiCJWoYruRpMaM9xuXrDOckt8jqkO203p1WDUyEtjXClU-v4KSju78FeGBCYXOnqc0R22cclTEEC_CrZucaw"/>
+</div>
+<span class="font-['Noto_Serif'] font-bold text-xl tracking-tight text-[#52f2f5] drop-shadow-[0_0_8px_rgba(82,242,245,0.5)]">Digital Scripter</span>
+</div>
+<button class="text-white/60 hover:text-[#ff9bf8] transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</nav>
+<main class="pt-28 pb-32 px-6 max-w-2xl mx-auto space-y-12">
+<!-- Header Section -->
+<header class="space-y-2">
+<h1 class="font-headline text-4xl font-bold text-on-surface tracking-tight leading-tight">טיול דרום מזרח אסיה</h1>
+<p class="font-label text-sm text-on-surface-variant uppercase tracking-widest opacity-70">מסע ביומן הדיגיטלי • תקציב בתנועה</p>
+</header>
+<!-- Summary Card with Donut Chart -->
+<section class="relative">
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary/10 blur-[80px] rounded-full"></div>
+<div class="scripter-glass organic-edge-1 p-8 shadow-[0_10px_40px_rgba(82,242,245,0.05)] border border-white/5 relative z-10">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<!-- Glowing Donut Chart -->
+<div class="relative w-40 h-40 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full donut-gradient opacity-80 blur-sm"></div>
+<div class="absolute inset-0 rounded-full donut-gradient"></div>
+<div class="absolute inset-4 rounded-full bg-background flex flex-center items-center justify-center">
+<div class="text-center">
+<span class="block font-label text-[10px] text-on-surface-variant leading-none">נוצל</span>
+<span class="font-headline text-2xl font-bold text-primary">65%</span>
+</div>
+</div>
+</div>
+<!-- Budget Summary Details -->
+<div class="flex-1 space-y-6 text-right md:text-right">
+<div>
+<span class="font-label text-xs text-on-surface-variant block mb-1">סה"כ הוצאות</span>
+<h2 class="font-headline text-5xl font-bold text-primary drop-shadow-[0_0_15px_rgba(82,242,245,0.4)]">₪12,450</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<span class="font-label text-[10px] text-tertiary block">נותר בקופה</span>
+<span class="font-body font-semibold text-lg">₪6,550</span>
+</div>
+<div>
+<span class="font-label text-[10px] text-secondary block">תקציב יומי</span>
+<span class="font-body font-semibold text-lg">₪420</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expense Categories / Digital Stickers -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline text-xl">פירוט הוצאות</h3>
+<span class="font-label text-xs text-primary bg-primary/10 px-3 py-1 organic-edge-2">אוקטובר 2023</span>
+</div>
+<div class="relative space-y-4">
+<!-- Digital Sticker Card 1: Food -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-tertiary opacity-0 group-hover:opacity-20 transition duration-500 rounded-xl"></div>
+<div class="relative scripter-glass organic-edge-2 p-5 flex items-center justify-between border border-white/5 transform transition-transform group-hover:rotate-1 group-hover:-translate-y-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container/30 flex items-center justify-center organic-edge-1 text-secondary shadow-[0_5px_15px_rgba(255,115,76,0.2)]">
+<span class="material-symbols-outlined" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div>
+<h4 class="font-body font-semibold">אוכל ושתייה</h4>
+<p class="font-label text-[11px] text-on-surface-variant">שוק לילה, באנגקוק</p>
+</div>
+</div>
+<div class="text-left">
+<span class="font-headline text-lg font-bold">₪1,200</span>
+</div>
+</div>
+</div>
+<!-- Digital Sticker Card 2: Transport (Overlapping slightly) -->
+<div class="relative group -mt-2">
+<div class="relative scripter-glass organic-edge-3 p-5 flex items-center justify-between border border-white/5 transform transition-transform group-hover:-rotate-1 group-hover:-translate-y-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container/20 flex items-center justify-center organic-edge-2 text-primary shadow-[0_5px_15px_rgba(82,242,245,0.2)]">
+<span class="material-symbols-outlined" data-icon="moped" style="font-variation-settings: 'FILL' 1;">moped</span>
+</div>
+<div>
+<h4 class="font-body font-semibold">תחבורה</h4>
+<p class="font-label text-[11px] text-on-surface-variant">השכרת קטנוע ומוניות</p>
+</div>
+</div>
+<div class="text-left">
+<span class="font-headline text-lg font-bold">₪850</span>
+</div>
+</div>
+</div>
+<!-- Digital Sticker Card 3: Accommodation -->
+<div class="relative group -mt-2">
+<div class="relative scripter-glass organic-edge-1 p-5 flex items-center justify-between border border-white/5 transform transition-transform group-hover:rotate-2 group-hover:-translate-y-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-container/20 flex items-center justify-center organic-edge-3 text-tertiary shadow-[0_5px_15px_rgba(255,155,248,0.2)]">
+<span class="material-symbols-outlined" data-icon="apartment" style="font-variation-settings: 'FILL' 1;">apartment</span>
+</div>
+<div>
+<h4 class="font-body font-semibold">לינה</h4>
+<p class="font-label text-[11px] text-on-surface-variant">הוסטלים וריזורטים</p>
+</div>
+</div>
+<div class="text-left">
+<span class="font-headline text-lg font-bold">₪4,300</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Bento Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="scripter-glass organic-edge-2 p-6 border border-white/5 col-span-1">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="warning">warning</span>
+<p class="font-body text-sm font-semibold mb-1">חריגה קלה</p>
+<p class="font-label text-[10px] text-on-surface-variant">הוצאות האלכוהול גבוהות ב-15% מהמתוכנן</p>
+</div>
+<div class="bg-primary/10 organic-edge-3 p-6 border border-primary/20 col-span-1">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="savings">savings</span>
+<p class="font-body text-sm font-semibold mb-1">חיסכון טיסה</p>
+<p class="font-label text-[10px] text-on-surface-variant">חסכת ₪200 בהזמנה המוקדמת לקראבי</p>
+</div>
+</section>
+</section></main>
+<!-- FAB for adding expense -->
+<button class="fixed bottom-32 left-8 w-16 h-16 bg-primary text-on-primary-container rounded-full shadow-[0_0_30px_rgba(82,242,245,0.4)] flex items-center justify-center z-50 transform hover:scale-110 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- Bottom Navigation Shell -->
+<div class="fixed bottom-6 w-full z-50 flex justify-center px-4">
+<nav class="bg-[#0c0e10]/90 backdrop-blur-lg w-[92%] rounded-[2rem_1rem_3rem_1.5rem] border border-white/5 shadow-[0_10px_40px_rgba(82,242,245,0.15)] flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-[#52f2f5]/20 to-[#ff9bf8]/10 text-[#52f2f5] rounded-full p-3 shadow-[0_0_15px_rgba(82,242,245,0.3)] scale-105" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Budget</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="fact_check">fact_check</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Checklist</span>
+</a>
+</nav>
+</div>
+</body></html>

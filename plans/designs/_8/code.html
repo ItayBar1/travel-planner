@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Manrope:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#006a6c",
+                    "on-tertiary-container": "#5b005e",
+                    "surface-container-highest": "#232629",
+                    "on-primary-fixed": "#004344",
+                    "secondary": "#ff734c",
+                    "on-secondary": "#430b00",
+                    "primary-container": "#0cd0d3",
+                    "secondary-container": "#b12d00",
+                    "primary-dim": "#3de4e7",
+                    "tertiary": "#ff9bf8",
+                    "on-secondary-fixed-variant": "#992600",
+                    "surface-variant": "#232629",
+                    "surface-bright": "#292c2f",
+                    "tertiary-dim": "#e77be2",
+                    "surface-container-low": "#111416",
+                    "tertiary-fixed": "#f688f1",
+                    "surface-container-lowest": "#000000",
+                    "outline": "#747578",
+                    "on-tertiary": "#6b006f",
+                    "on-primary-fixed-variant": "#006264",
+                    "on-tertiary-fixed": "#310033",
+                    "background": "#0c0e10",
+                    "tertiary-container": "#f688f1",
+                    "surface-container-high": "#1d2022",
+                    "secondary-fixed": "#ffc4b4",
+                    "inverse-on-surface": "#535557",
+                    "on-primary-container": "#004041",
+                    "on-primary": "#005859",
+                    "on-surface": "#eeeef0",
+                    "primary": "#52f2f5",
+                    "outline-variant": "#46484a",
+                    "on-tertiary-fixed-variant": "#69006d",
+                    "error-container": "#9f0519",
+                    "tertiary-fixed-dim": "#e77be2",
+                    "on-error": "#490006",
+                    "surface-tint": "#52f2f5",
+                    "on-background": "#eeeef0",
+                    "surface-container": "#171a1c",
+                    "on-surface-variant": "#aaabad",
+                    "error-dim": "#d7383b",
+                    "secondary-dim": "#ff734c",
+                    "primary-fixed-dim": "#3de4e7",
+                    "on-secondary-fixed": "#671600",
+                    "secondary-fixed-dim": "#ffb19b",
+                    "primary-fixed": "#52f2f5",
+                    "on-error-container": "#ffa8a3",
+                    "inverse-surface": "#f9f9fc",
+                    "error": "#ff716c",
+                    "surface-dim": "#0c0e10",
+                    "surface": "#0c0e10",
+                    "on-secondary-container": "#fff6f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0c0e10;
+            color: #eeeef0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .organic-shape-1 { border-radius: 2rem 1rem 3rem 1.5rem; }
+        .organic-shape-2 { border-radius: 1.5rem 3rem 1rem 2.5rem; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(29, 32, 34, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 15px rgba(82, 242, 245, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3de4e7; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#0c0e10]/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Traveler profile silhouette in a minimalist vector style with neon cyan highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFL8gD_dccwdvkj2lwHYxKvNuuYWU5ZzI1urojGfNqwSaO3PP2kOWJz_7mcfK8Iy7YzOLVUexCp0d5MytGGGvqA8LfbOvxfdaR4aoXaGwb9-H6fXFRJAtOeeGZrCbTM1gTfXoS8pATXRSosRkO2Y0leEdyVqvMxUFyqTZOeE3-f5wKyCC9ijaw7ZSe4qPAOQm3AKGHaSBJjyY2vFVrxTBcIXR08JAODWLB7tzzkjD36UMU5Wjc9eMl0EebxvmjLM_Ll9P8I37YM0uw"/>
+</div>
+<h1 class="font-['Noto_Serif'] font-bold text-xl tracking-tight text-[#52f2f5] drop-shadow-[0_0_8px_rgba(82,242,245,0.5)]">Digital Scripter</h1>
+</div>
+<button class="text-white/60 hover:text-[#ff9bf8] transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Hero Narrative Section -->
+<section class="mb-12">
+<h2 class="font-headline text-3xl font-bold mb-2 text-on-background">טיול לדרום מזרח אסיה</h2>
+<p class="font-label text-on-surface-variant text-sm">יומן מסע בתהליך כתיבה</p>
+</section>
+<!-- Glowing Progress Bar -->
+<section class="mb-12 relative">
+<div class="flex justify-between items-end mb-3">
+<span class="font-headline text-4xl font-bold text-primary drop-shadow-[0_0_10px_rgba(82,242,245,0.4)]">12 מתוך 30</span>
+<span class="font-label text-xs text-on-surface-variant tracking-widest uppercase">התקדמות ההכנות</span>
+</div>
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden p-1 border border-white/5">
+<div class="h-full bg-gradient-to-l from-primary to-tertiary rounded-full shadow-[0_0_15px_rgba(82,242,245,0.5)]" style="width: 40%;"></div>
+</div>
+<!-- Decorative Motif -->
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+</section>
+<!-- Checklist Categories - Asymmetric Bento -->
+<div class="grid grid-cols-1 gap-8">
+<!-- Category: Equipment -->
+<div class="glass-panel organic-shape-1 p-6 relative overflow-hidden group hover:scale-[1.01] transition-transform">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/20 transition-colors"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="backpack">backpack</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Equipment ציוד</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center cursor-pointer hover:bg-primary/20 transition-colors neon-glow-primary">
+<span class="material-symbols-outlined text-primary text-sm font-bold" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="text-on-surface font-medium line-through opacity-50">תרמיל גב 65 ליטר</span>
+</div>
+<span class="font-label text-[10px] text-tertiary bg-tertiary/10 px-2 py-1 rounded-sm">חיוני</span>
+</li>
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary/40 flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+</div>
+<span class="text-on-surface font-medium">נעלי הליכה נגד מים</span>
+</div>
+</li>
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary/40 flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+</div>
+<span class="text-on-surface font-medium">מתאם חשמל אוניברסלי</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Category: Documents -->
+<div class="glass-panel organic-shape-2 p-6 relative overflow-hidden group hover:scale-[1.01] transition-transform">
+<div class="absolute bottom-0 left-0 w-24 h-24 bg-secondary/10 rounded-full blur-2xl -ml-12 -mb-12 group-hover:bg-secondary/20 transition-colors"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Documents מסמכים</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center cursor-pointer hover:bg-primary/20 transition-colors neon-glow-primary">
+<span class="material-symbols-outlined text-primary text-sm font-bold" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="text-on-surface font-medium line-through opacity-50">חידוש דרכון</span>
+</div>
+</li>
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary/40 flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+</div>
+<span class="text-on-surface font-medium">ביטוח נסיעות אתגרי</span>
+</div>
+<span class="font-label text-[10px] text-secondary bg-secondary/10 px-2 py-1 rounded-sm">דחוף</span>
+</li>
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-primary/40 flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+</div>
+<span class="text-on-surface font-medium">צילומי מסמכים בענן</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Visual Break - Scrapbook Image -->
+<div class="relative h-48 organic-shape-1 overflow-hidden shadow-2xl rotate-1 group">
+<img alt="Misty Mountains" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Cinematic wide shot of misty green mountains in Sapa Vietnam at dawn with ethereal light and purple atmospheric haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFb9PIW1sWPoz95RH82_AW6xwvLtmD4vfDT6Al11dSa5-qpdCA-IxBmxOXt-uLLQFJEnpQICaoXlG6FuPgzJpoVT3MVBUsxsBto4nh_R5DGZ3lLJaPlrMnJdyzjxsogQP2FmRKiawyUYsb6mTL-UoIDMOCRRHpIdQzcEndBN5duiXf8DYfRwirDoDTeEVN4A6fwqdl-a0jSGPbgPCrbDYgqVVeVGvNPWLSw_JIjOex9OOY33vDE-7IOMh_2NsKXZMT2fnjBp30NS8Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 right-4">
+<p class="font-headline text-white italic text-lg drop-shadow-lg">"המסע מתחיל בצעד אחד..."</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-32 left-8 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(82,242,245,0.4)] hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] z-50 flex justify-around items-center px-4 bg-[#0c0e10]/90 backdrop-blur-lg rounded-[2rem_1rem_3rem_1.5rem] border border-white/5 shadow-[0_10px_40px_rgba(82,242,245,0.15)]">
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-3 hover:text-[#ff734c] hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Budget</span>
+</a>
+<!-- Active Tab: Checklist -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-[#52f2f5]/20 to-[#ff9bf8]/10 text-[#52f2f5] rounded-full p-3 shadow-[0_0_15px_rgba(82,242,245,0.3)] scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-wide">Checklist</span>
+</a>
+</nav>
+</body></html>
