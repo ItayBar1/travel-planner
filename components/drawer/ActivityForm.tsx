@@ -1,6 +1,6 @@
 'use client';
 
-import { useTransition } from 'react';
+import { useState, useTransition } from 'react';
 import { Activity, ActivityType } from '@/lib/types';
 import { createActivity, updateActivity } from '@/app/actions/activities';
 
@@ -18,8 +18,18 @@ const ACTIVITY_TYPES: { value: ActivityType; label: string }[] = [
   { value: 'reminder', label: 'תזכורת' },
 ];
 
-export function ActivityForm({ stopId, activity, defaultType = 'activity', onClose, onSaved }: Props) {
+const INPUT_CLASS =
+  'bg-[var(--color-surface-container-high)] rounded-xl px-3 py-2 text-[var(--color-on-surface)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40';
+
+export function ActivityForm({
+  stopId,
+  activity,
+  defaultType = 'activity',
+  onClose,
+  onSaved,
+}: Props) {
   const [isPending, startTransition] = useTransition();
+  const [isTimed, setIsTimed] = useState(!!activity?.event_date);
   const isEdit = !!activity;
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -43,7 +53,7 @@ export function ActivityForm({ stopId, activity, defaultType = 'activity', onClo
     >
       <div
         className="w-full max-w-md bg-[var(--color-surface-container)] rounded-t-[2rem] md:rounded-[2rem_1rem_2rem_1.5rem] p-6 shadow-2xl"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-lg font-bold text-[var(--color-on-surface)] mb-5">
           {isEdit ? 'עריכה' : 'הוסף פריט'}
@@ -60,7 +70,7 @@ export function ActivityForm({ stopId, activity, defaultType = 'activity', onClo
               name="name"
               required
               defaultValue={activity?.name}
-              className="bg-[var(--color-surface-container-high)] rounded-xl px-3 py-2 text-[var(--color-on-surface)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40"
+              className={INPUT_CLASS}
             />
           </label>
 
@@ -69,24 +79,76 @@ export function ActivityForm({ stopId, activity, defaultType = 'activity', onClo
             <select
               name="type"
               defaultValue={activity?.type ?? defaultType}
-              className="bg-[var(--color-surface-container-high)] rounded-xl px-3 py-2 text-[var(--color-on-surface)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40"
+              className={INPUT_CLASS}
             >
-              {ACTIVITY_TYPES.map(t => (
-                <option key={t.value} value={t.value}>{t.label}</option>
+              {ACTIVITY_TYPES.map((t) => (
+                <option key={t.value} value={t.value}>
+                  {t.label}
+                </option>
               ))}
             </select>
           </label>
 
           <label className="flex flex-col gap-1">
-            <span className="text-sm text-[var(--color-on-surface-variant)]">קישור (אופציונלי)</span>
+            <span className="text-sm text-[var(--color-on-surface-variant)]">
+              קישור (אופציונלי)
+            </span>
             <input
               type="url"
               name="url"
               defaultValue={activity?.url ?? ''}
               placeholder="https://..."
-              className="bg-[var(--color-surface-container-high)] rounded-xl px-3 py-2 text-[var(--color-on-surface)] outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40"
+              className={INPUT_CLASS}
             />
           </label>
+
+          {/* Timed event toggle */}
+          <label className="flex items-center gap-2 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={isTimed}
+              onChange={(e) => setIsTimed(e.target.checked)}
+              className="w-4 h-4 accent-[var(--color-tertiary)]"
+            />
+            <span className="text-sm text-[var(--color-on-surface-variant)]">
+              אירוע מתוזמן (תאריך + שעה)
+            </span>
+          </label>
+
+          {/* Hidden inputs to clear values when not timed */}
+          {!isTimed && (
+            <>
+              <input type="hidden" name="event_date" value="" />
+              <input type="hidden" name="event_time" value="" />
+            </>
+          )}
+
+          {/* Date + time inputs when timed */}
+          {isTimed && (
+            <div className="flex gap-3">
+              <label className="flex flex-col gap-1 flex-1">
+                <span className="text-sm text-[var(--color-on-surface-variant)]">תאריך</span>
+                <input
+                  type="date"
+                  name="event_date"
+                  required
+                  defaultValue={activity?.event_date ?? ''}
+                  className={INPUT_CLASS}
+                />
+              </label>
+              <label className="flex flex-col gap-1 flex-1">
+                <span className="text-sm text-[var(--color-on-surface-variant)]">
+                  שעה (אופציונלי)
+                </span>
+                <input
+                  type="time"
+                  name="event_time"
+                  defaultValue={activity?.event_time?.slice(0, 5) ?? ''}
+                  className={INPUT_CLASS}
+                />
+              </label>
+            </div>
+          )}
 
           <div className="flex gap-3 justify-end mt-2">
             <button

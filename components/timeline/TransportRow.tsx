@@ -1,7 +1,7 @@
 'use client';
 
 import { useTransition } from 'react';
-import { Transport, TransportType } from '@/lib/types';
+import { Stop, Transport, TransportType } from '@/lib/types';
 import { deleteTransport } from '@/app/actions/transport';
 
 const TYPE_LABEL: Record<TransportType, string> = {
@@ -22,14 +22,26 @@ const TYPE_ICON: Record<TransportType, string> = {
   other: '→',
 };
 
+function computeArrival(fromStop: Stop, durationHours: number): string {
+  const [y, m, d] = fromStop.end_date.split('-').map(Number);
+  const departureMs = new Date(y, m - 1, d).getTime();
+  const arrival = new Date(departureMs + durationHours * 3_600_000);
+  return new Intl.DateTimeFormat('he-IL', {
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(arrival);
+}
+
 interface Props {
   transport: Transport | null;
-  fromStopId: string;
+  fromStop: Stop;
   toStopId: string;
   onAddTransport: () => void;
 }
 
-export function TransportRow({ transport, onAddTransport }: Props) {
+export function TransportRow({ transport, fromStop, onAddTransport }: Props) {
   const [isPending, startTransition] = useTransition();
 
   function handleDelete(e: React.MouseEvent) {
@@ -41,20 +53,26 @@ export function TransportRow({ transport, onAddTransport }: Props) {
   }
 
   return (
-    <div className="flex flex-col items-center py-1 gap-1">
-      {/* Vertical connector line */}
-      <div className="w-px h-3 bg-[var(--color-outline-variant)]" />
-
+    <div className="flex justify-center py-6 relative z-10">
       {transport ? (
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-[var(--color-surface-container-low)] rounded-full text-sm group">
-          <span>{TYPE_ICON[transport.type as TransportType]}</span>
-          <span className="text-[var(--color-on-surface-variant)]">{TYPE_LABEL[transport.type as TransportType]}</span>
-          {transport.duration_hours != null && (
-            <span className="text-[var(--color-on-surface-variant)]">· {transport.duration_hours} ש׳</span>
-          )}
-          {transport.cost != null && (
-            <span className="text-[var(--color-on-surface-variant)]">· ₪{transport.cost}</span>
-          )}
+        <div className="flex items-center gap-3 bg-[var(--color-surface-container-low)] px-6 py-3 rounded-full border border-white/5 shadow-lg group">
+          <span className="text-xl text-[var(--color-secondary)]">
+            {TYPE_ICON[transport.type as TransportType]}
+          </span>
+          <div className="flex flex-col">
+            <span className="font-label text-xs font-medium text-[var(--color-on-surface)]/80">
+              {TYPE_LABEL[transport.type as TransportType]}
+              {transport.duration_hours != null && ` · ${transport.duration_hours} ש׳`}
+            </span>
+            {transport.duration_hours != null && (
+              <span className="font-label text-[10px] text-white/30">
+                מגיע {computeArrival(fromStop, transport.duration_hours)}
+              </span>
+            )}
+            {transport.cost != null && (
+              <span className="font-label text-[10px] text-white/30">₪{transport.cost}</span>
+            )}
+          </div>
           <button
             onClick={handleDelete}
             disabled={isPending}
@@ -67,14 +85,12 @@ export function TransportRow({ transport, onAddTransport }: Props) {
       ) : (
         <button
           onClick={onAddTransport}
-          className="flex items-center gap-1 text-xs text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] px-3 py-1 rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
+          className="flex items-center gap-1 text-xs text-white/30 hover:text-[var(--color-primary)] px-4 py-2 rounded-full border border-white/5 hover:border-[var(--color-primary)]/20 hover:bg-[var(--color-surface-container-low)] transition-all"
         >
           <span>+</span>
           <span>הוסף תחבורה</span>
         </button>
       )}
-
-      <div className="w-px h-3 bg-[var(--color-outline-variant)]" />
     </div>
   );
 }

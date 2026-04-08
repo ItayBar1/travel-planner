@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme inline {
   /* Digital Scripter — Neon Silk Scrapbook */
@@ -31,6 +31,19 @@
   --font-meta: var(--font-manrope);
 }
 
+/* Font utility classes */
+.font-headline {
+  font-family: var(--font-display), serif;
+}
+.font-label {
+  font-family: var(--font-meta), sans-serif;
+}
+
+/* Neon glow */
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(82, 242, 245, 0.4);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
@@ -49,6 +62,9 @@ html {
 
 body {
   background-color: var(--color-background);
+  /* Subtle dot-grid texture */
+  background-image: radial-gradient(circle at 2px 2px, rgba(82, 242, 245, 0.04) 1px, transparent 0);
+  background-size: 40px 40px;
   color: var(--color-on-surface);
   font-family: var(--font-body), system-ui, sans-serif;
 }

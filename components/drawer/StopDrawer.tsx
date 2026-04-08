@@ -12,8 +12,18 @@ interface Props {
   onClose: () => void;
 }
 
-const SECTION_CONFIG: { type: ActivityType; title: string; emptyLabel: string; addLabel: string }[] = [
-  { type: 'activity', title: 'פעילויות', emptyLabel: 'אין פעילויות עדיין', addLabel: 'הוסף פעילות' },
+const SECTION_CONFIG: {
+  type: ActivityType;
+  title: string;
+  emptyLabel: string;
+  addLabel: string;
+}[] = [
+  {
+    type: 'activity',
+    title: 'פעילויות',
+    emptyLabel: 'אין פעילויות עדיין',
+    addLabel: 'הוסף פעילות',
+  },
   { type: 'restaurant', title: 'מסעדות', emptyLabel: 'אין מסעדות עדיין', addLabel: 'הוסף מסעדה' },
   { type: 'reminder', title: 'תזכורות', emptyLabel: 'אין תזכורות עדיין', addLabel: 'הוסף תזכורת' },
 ];
@@ -50,12 +60,14 @@ export function StopDrawer({ stop, onClose }: Props) {
         {/* Panel */}
         <div
           className="relative w-full max-w-lg h-full bg-[var(--color-surface)] flex flex-col shadow-2xl overflow-hidden"
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-6 py-5 border-b border-[var(--color-outline-variant)]/40">
             <div className="flex-1 min-w-0">
-              <h2 className="text-xl font-bold text-[var(--color-on-surface)] truncate">{stop.name}</h2>
+              <h2 className="text-xl font-bold text-[var(--color-on-surface)] truncate">
+                {stop.name}
+              </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)]">{stop.country}</p>
             </div>
             <button
@@ -71,8 +83,11 @@ export function StopDrawer({ stop, onClose }: Props) {
           <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-6">
             {loading ? (
               <div className="flex flex-col gap-3 pt-4">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="h-12 bg-[var(--color-surface-container)] rounded-xl animate-pulse" />
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="h-12 bg-[var(--color-surface-container)] rounded-xl animate-pulse"
+                  />
                 ))}
               </div>
             ) : (
@@ -82,7 +97,7 @@ export function StopDrawer({ stop, onClose }: Props) {
                   title={title}
                   emptyLabel={emptyLabel}
                   addLabel={addLabel}
-                  items={activities.filter(a => a.type === type)}
+                  items={activities.filter((a) => a.type === type)}
                   onAdd={() => setAddingType(type)}
                   onEdit={setEditingActivity}
                   onDelete={refresh}
@@ -117,7 +132,15 @@ interface SectionProps {
   onDelete: () => void;
 }
 
-function ActivitySection({ title, emptyLabel, addLabel, items, onAdd, onEdit, onDelete }: SectionProps) {
+function ActivitySection({
+  title,
+  emptyLabel,
+  addLabel,
+  items,
+  onAdd,
+  onEdit,
+  onDelete,
+}: SectionProps) {
   return (
     <section>
       <div className="flex items-center justify-between mb-2">
@@ -136,13 +159,8 @@ function ActivitySection({ title, emptyLabel, addLabel, items, onAdd, onEdit, on
         <p className="text-sm text-[var(--color-on-surface-variant)] italic py-2">{emptyLabel}</p>
       ) : (
         <ul className="flex flex-col gap-1">
-          {items.map(item => (
-            <ActivityItem
-              key={item.id}
-              activity={item}
-              onEdit={onEdit}
-              onDeleted={onDelete}
-            />
+          {items.map((item) => (
+            <ActivityItem key={item.id} activity={item} onEdit={onEdit} onDeleted={onDelete} />
           ))}
         </ul>
       )}
@@ -154,6 +172,15 @@ interface ItemProps {
   activity: Activity;
   onEdit: (activity: Activity) => void;
   onDeleted: () => void;
+}
+
+function formatTimedBadge(eventDate: string, eventTime: string | null): string {
+  const [y, m, d] = eventDate.split('-').map(Number);
+  const dateStr = new Intl.DateTimeFormat('he-IL', { day: 'numeric', month: 'short' }).format(
+    new Date(y, m - 1, d)
+  );
+  if (!eventTime) return dateStr;
+  return `${dateStr}, ${eventTime.slice(0, 5)}`;
 }
 
 function ActivityItem({ activity, onEdit, onDeleted }: ItemProps) {
@@ -169,21 +196,28 @@ function ActivityItem({ activity, onEdit, onDeleted }: ItemProps) {
 
   return (
     <li className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--color-surface-container)] group">
-      <span className="flex-1 text-sm text-[var(--color-on-surface)] truncate">
-        {activity.url ? (
-          <a
-            href={activity.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={e => e.stopPropagation()}
-            className="text-[var(--color-primary)] underline-offset-2 hover:underline"
-          >
-            {activity.name}
-          </a>
-        ) : (
-          activity.name
+      <div className="flex-1 min-w-0 flex flex-col gap-0.5">
+        <span className="text-sm text-[var(--color-on-surface)] truncate">
+          {activity.url ? (
+            <a
+              href={activity.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-[var(--color-primary)] underline-offset-2 hover:underline"
+            >
+              {activity.name}
+            </a>
+          ) : (
+            activity.name
+          )}
+        </span>
+        {activity.event_date && (
+          <span className="text-xs text-[var(--color-tertiary)] font-medium">
+            🗓 {formatTimedBadge(activity.event_date, activity.event_time)}
+          </span>
         )}
-      </span>
+      </div>
 
       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
         <button

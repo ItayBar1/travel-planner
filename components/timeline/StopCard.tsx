@@ -12,11 +12,24 @@ const TYPE_LABEL: Record<StopType, string> = {
   transport_hub: 'צומת תחבורה',
 };
 
-const TYPE_STYLE: Record<StopType, string> = {
-  city: 'bg-[var(--color-primary-container)] text-[var(--color-primary)]',
-  attraction: 'bg-[var(--color-secondary-container)] text-[var(--color-secondary)]',
-  transport_hub: 'bg-[var(--color-tertiary-container)] text-[var(--color-tertiary)]',
+const TYPE_COLOR: Record<StopType, string> = {
+  city: 'var(--color-primary)',
+  attraction: 'var(--color-secondary)',
+  transport_hub: 'var(--color-tertiary)',
 };
+
+const TYPE_BORDER: Record<StopType, string> = {
+  city: 'rgba(82,242,245,0.22)',
+  attraction: 'rgba(255,115,76,0.22)',
+  transport_hub: 'rgba(255,155,248,0.22)',
+};
+
+const HERO_GRADIENTS = [
+  'radial-gradient(circle at 30% 50%, rgba(82,242,245,0.18) 0%, transparent 65%), linear-gradient(135deg, #0d3d3e 0%, #111419 100%)',
+  'radial-gradient(circle at 70% 40%, rgba(255,115,76,0.18) 0%, transparent 65%), linear-gradient(135deg, #3d1a0e 0%, #111419 100%)',
+  'radial-gradient(circle at 40% 60%, rgba(255,155,248,0.15) 0%, transparent 65%), linear-gradient(135deg, #3d0039 0%, #111419 100%)',
+  'radial-gradient(circle at 60% 30%, rgba(82,242,245,0.10) 0%, transparent 65%), linear-gradient(135deg, #0a2a2b 0%, #111419 100%)',
+];
 
 function formatDate(dateStr: string): string {
   const [y, m, d] = dateStr.split('-').map(Number);
@@ -36,22 +49,30 @@ function stayDuration(start: string, end: string): string {
 
 interface Props {
   stop: Stop;
+  index: number;
   onEdit: () => void;
   onOpenDrawer: () => void;
 }
 
-export function StopCard({ stop, onEdit, onOpenDrawer }: Props) {
+export function StopCard({ stop, index, onEdit, onOpenDrawer }: Props) {
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
-    useSortable({ id: stop.id });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: stop.id,
+  });
 
   const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
   };
+
+  const isEven = index % 2 === 0;
+  const heroGradient = HERO_GRADIENTS[index % HERO_GRADIENTS.length];
+  const mobileTilt = isEven ? 'rotate-[1deg]' : '-rotate-[1.5deg]';
+  const accentColor = TYPE_COLOR[stop.type];
+  const borderColor = TYPE_BORDER[stop.type];
 
   function handleDelete() {
     startTransition(async () => {
@@ -60,75 +81,141 @@ export function StopCard({ stop, onEdit, onOpenDrawer }: Props) {
   }
 
   return (
+    /*
+     * Mobile:  flex justify-start/end  →  88% wide card, polaroid tilt
+     * Desktop: block                   →  full width, no tilt (layout handled by TimelineView)
+     */
     <div
       ref={setNodeRef}
       style={style}
       {...attributes}
-      className="relative group bg-[var(--color-surface-container)] rounded-[1.5rem_0.75rem_2rem_1rem] p-4 cursor-pointer hover:bg-[var(--color-surface-container-high)] transition-colors"
+      className={`flex ${isEven ? 'justify-start' : 'justify-end'} md:block`}
     >
-      {/* Drag handle */}
+      {/* Inner card — mobile: 88% + tilt; desktop: full-width, no tilt */}
       <div
-        {...listeners}
-        className="absolute start-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-60 cursor-grab active:cursor-grabbing touch-none p-1"
-        onClick={e => e.stopPropagation()}
-        aria-label="גרור לסידור מחדש"
+        className={`relative w-[88%] md:w-full group ${mobileTilt} md:rotate-0 hover:rotate-0 transition-transform duration-500`}
       >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-[var(--color-on-surface-variant)]">
-          <circle cx="5" cy="4" r="1.5" /><circle cx="11" cy="4" r="1.5" />
-          <circle cx="5" cy="8" r="1.5" /><circle cx="11" cy="8" r="1.5" />
-          <circle cx="5" cy="12" r="1.5" /><circle cx="11" cy="12" r="1.5" />
-        </svg>
-      </div>
+        {/* Hover glow */}
+        <div
+          className="absolute -inset-1 rounded-[2rem_1rem_3rem_1.5rem] blur opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          style={{
+            background: `linear-gradient(135deg, ${accentColor}18, var(--color-tertiary)18)`,
+          }}
+        />
 
-      {/* Card content */}
-      <div className="ps-4" onClick={onOpenDrawer}>
-        <div className="flex items-center gap-2 mb-1">
-          <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${TYPE_STYLE[stop.type]}`}>
-            {TYPE_LABEL[stop.type]}
-          </span>
-          <h3 className="font-semibold text-[var(--color-on-surface)] flex-1 text-base leading-snug">
-            {stop.name}
-          </h3>
-          {/* Action buttons */}
-          <button
-            onClick={e => { e.stopPropagation(); onEdit(); }}
-            className="text-xs text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] px-2 py-1 rounded-lg hover:bg-[var(--color-primary-container)] transition-colors"
+        {/* Card body */}
+        <div
+          className="relative bg-[var(--color-surface-container-high)] rounded-[2rem_1rem_3rem_1.5rem] shadow-2xl overflow-hidden"
+          style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.45)' }}
+        >
+          {/* Drag handle */}
+          <div
+            {...listeners}
+            className="absolute start-3 top-3 z-10 opacity-0 group-hover:opacity-60 cursor-grab active:cursor-grabbing touch-none p-1"
+            onClick={(e) => e.stopPropagation()}
+            aria-label="גרור לסידור מחדש"
           >
-            ערוך
-          </button>
-          {confirmDelete ? (
-            <span className="flex items-center gap-1" onClick={e => e.stopPropagation()}>
-              <button
-                onClick={handleDelete}
-                disabled={isPending}
-                className="text-xs text-[var(--color-secondary)] hover:text-[var(--color-secondary)] px-2 py-1 rounded-lg bg-[var(--color-secondary-container)] transition-colors"
-              >
-                {isPending ? '...' : 'כן, מחק'}
-              </button>
-              <button
-                onClick={() => setConfirmDelete(false)}
-                className="text-xs text-[var(--color-on-surface-variant)] px-2 py-1 rounded-lg hover:bg-[var(--color-surface-container-highest)] transition-colors"
-              >
-                ביטול
-              </button>
-            </span>
-          ) : (
-            <button
-              onClick={e => { e.stopPropagation(); setConfirmDelete(true); }}
-              aria-label="מחק"
-              className="text-xs text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)] px-2 py-1 rounded-lg hover:bg-[var(--color-secondary-container)] transition-colors"
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              className="text-[var(--color-on-surface-variant)]"
             >
-              מחק
-            </button>
-          )}
-        </div>
+              <circle cx="5" cy="4" r="1.5" />
+              <circle cx="11" cy="4" r="1.5" />
+              <circle cx="5" cy="8" r="1.5" />
+              <circle cx="11" cy="8" r="1.5" />
+              <circle cx="5" cy="12" r="1.5" />
+              <circle cx="11" cy="12" r="1.5" />
+            </svg>
+          </div>
 
-        <p className="text-sm text-[var(--color-on-surface-variant)]">{stop.country}</p>
-        <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5">
-          {formatDate(stop.start_date)} — {formatDate(stop.end_date)}
-          {' '}·{' '}
-          {stayDuration(stop.start_date, stop.end_date)}
-        </p>
+          {/* Hero area */}
+          <div
+            className="relative h-44 md:h-52 overflow-hidden cursor-pointer"
+            style={{ background: heroGradient }}
+            onClick={onOpenDrawer}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-container-high)] to-transparent" />
+            <div className="absolute bottom-3 end-4">
+              <span
+                className="font-label text-xs px-3 py-1 rounded-sm backdrop-blur-md"
+                style={{
+                  background: `${accentColor}22`,
+                  color: accentColor,
+                  border: `1px solid ${borderColor}`,
+                }}
+              >
+                {formatDate(stop.start_date)} – {formatDate(stop.end_date)}
+              </span>
+            </div>
+          </div>
+
+          {/* Text content */}
+          <div className="p-5 cursor-pointer" onClick={onOpenDrawer}>
+            <h3
+              className="font-headline text-2xl md:text-3xl mb-1 glow-cyan"
+              style={{ color: accentColor }}
+            >
+              {stop.name}
+            </h3>
+            <p className="text-[var(--color-on-surface-variant)] text-sm mb-4 leading-relaxed">
+              {stop.country} · {stayDuration(stop.start_date, stop.end_date)}
+            </p>
+
+            <div className="flex items-center justify-between">
+              <span
+                className="font-label px-3 py-1 text-[10px] font-bold rounded-full"
+                style={{
+                  background: `${accentColor}18`,
+                  color: accentColor,
+                  border: `1px solid ${borderColor}`,
+                }}
+              >
+                {TYPE_LABEL[stop.type]}
+              </span>
+
+              {/* Actions — visible on hover */}
+              <div
+                className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={onEdit}
+                  className="text-xs text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] px-2 py-1 rounded-lg hover:bg-[var(--color-primary-container)] transition-colors"
+                >
+                  ערוך
+                </button>
+                {confirmDelete ? (
+                  <>
+                    <button
+                      onClick={handleDelete}
+                      disabled={isPending}
+                      className="text-xs text-[var(--color-secondary)] px-2 py-1 rounded-lg bg-[var(--color-secondary-container)] transition-colors"
+                    >
+                      {isPending ? '...' : 'כן, מחק'}
+                    </button>
+                    <button
+                      onClick={() => setConfirmDelete(false)}
+                      className="text-xs text-[var(--color-on-surface-variant)] px-2 py-1 rounded-lg hover:bg-[var(--color-surface-container-highest)] transition-colors"
+                    >
+                      ביטול
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => setConfirmDelete(true)}
+                    aria-label="מחק"
+                    className="text-xs text-[var(--color-on-surface-variant)] hover:text-[var(--color-secondary)] px-2 py-1 rounded-lg hover:bg-[var(--color-secondary-container)] transition-colors"
+                  >
+                    מחק
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
